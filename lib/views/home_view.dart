@@ -38,7 +38,11 @@ class _HomeViewState extends State<HomeView> {
       ),
 
       body: Column(
-       children: [],
+       children: [
+          Card(
+
+         )
+       ],
 
       ),
     );
