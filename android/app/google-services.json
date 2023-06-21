@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "148963456311",
+    "project_id": "ichatty-71ab4",
+    "storage_bucket": "ichatty-71ab4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148963456311:android:caae891b372ce2718b16b2",
+        "android_client_info": {
+          "package_name": "com.example.ichatty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148963456311-10pcorrctloqpl0bgt8j0s9si9blbi1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOHV4-OtilSC5ju6ITBuSRarJqdVvaF1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148963456311-10pcorrctloqpl0bgt8j0s9si9blbi1u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
