@@ -186,4 +186,23 @@ class APIs {
       'push_token': me.pushToken,
     });
   }
+
+
+  ///************** Chat Screen Related APIs **************
+
+  // chats (collection) --> conversation_id (doc) --> messages (collection) --> message (doc)
+
+  // useful for getting conversation id
+  static String getConversationID(String id) => user.uid.hashCode <= id.hashCode
+      ? '${user.uid}_$id'
+      : '${id}_${user.uid}';
+
+  // for getting all messages of a specific conversation from firestore database
+  static Stream<QuerySnapshot<Map<String, dynamic>>> getAllMessages(
+      ChatUser user) {
+    return firestore
+        .collection('chats/${getConversationID(user.id)}/messages/')
+        .orderBy('sent', descending: true)
+        .snapshots();
+  }
 }
