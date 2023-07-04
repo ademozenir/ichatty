@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart';
 import 'package:ichatty/models/chat_user.dart';
+import 'package:ichatty/models/message.dart';
 
 class APIs {
   // for authentication
@@ -204,5 +205,34 @@ class APIs {
         .collection('chats/${getConversationID(user.id)}/messages/')
         .orderBy('sent', descending: true)
         .snapshots();
+  }
+
+  // for sending message
+  static Future<void> sendMessage(
+      ChatUser chatUser, String msg, Type type) async {
+    //message sending time (also used as id)
+    final time = DateTime.now().millisecondsSinceEpoch.toString();
+
+    //message to send
+    final Message message = Message(
+        toId: chatUser.id,
+        msg: msg,
+        read: '',
+        type: type,
+        fromId: user.uid,
+        sent: time);
+
+    final ref = firestore
+        .collection('chats/${getConversationID(chatUser.id)}/messages/');
+    await ref.doc(time).set(message.toJson()).then((value) =>
+        sendPushNotification(chatUser, type == Type.text ? msg : 'image'));
+  }
+
+  //update read status of message
+  static Future<void> updateMessageReadStatus(Message message) async {
+    firestore
+        .collection('chats/${getConversationID(message.fromId)}/messages/')
+        .doc(message.sent)
+        .update({'read': DateTime.now().millisecondsSinceEpoch.toString()});
   }
 }
