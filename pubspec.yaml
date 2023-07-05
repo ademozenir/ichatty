@@ -34,6 +34,7 @@ dependencies:
   firebase_core:
   cloud_firestore:
   google_sign_in:
+  firebase_storage:
   image_picker:
   cached_network_image:
   emoji_picker_flutter:
