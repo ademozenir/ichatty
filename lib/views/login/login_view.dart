@@ -70,6 +70,7 @@ class _LoginViewState extends State<LoginView> {
       log('\n_signInWithGoogle: $e');
       return null;
     }
+    return null;
   }
 
   @override

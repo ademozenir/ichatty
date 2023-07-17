@@ -37,7 +37,7 @@ class _HomeViewState extends State<HomeView> {
             child: const Icon(Icons.add_comment_rounded)),
       ),
 
-      body: Column(
+      body: const Column(
        children: [
           Card(
 
